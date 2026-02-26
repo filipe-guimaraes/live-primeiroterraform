@@ -3,7 +3,7 @@ name: "Deploy Prod Environment"
 on:
   push:
     branches:
-      - prod
+      - main
 
 # Permission can be added at job level or workflow level    
 permissions:
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   terraform:
-    uses: ./github/workflows/terraform.yml
+    uses: ./.github/workflows/terraform.yml
     with:
       environment: "prod"
       aws-assume-role-arn: "arn:aws:iam::701974052433:role/GitHubAction-AssumeRoleWithAction"
